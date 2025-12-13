@@ -5,11 +5,11 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/Juny09/sport_backend/internal/auth"
+	"github.com/Juny09/sport_backend/internal/config"
+	httpserver "github.com/Juny09/sport_backend/internal/http"
+	"github.com/Juny09/sport_backend/internal/repo"
 	"github.com/joho/godotenv"
-	"github.com/user/sport-booking/internal/auth"
-	"github.com/user/sport-booking/internal/config"
-	httpserver "github.com/user/sport-booking/internal/http"
-	"github.com/user/sport-booking/internal/repo"
 )
 
 // main 函数负责启动 HTTP 服务（后续会接入配置、路由、数据库等）

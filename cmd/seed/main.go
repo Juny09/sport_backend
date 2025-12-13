@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/Juny09/sport_backend/internal/config"
+	"github.com/Juny09/sport_backend/internal/repo"
 	"github.com/joho/godotenv"
-	"github.com/user/sport-booking/internal/config"
-	"github.com/user/sport-booking/internal/repo"
 )
 
 func main() {

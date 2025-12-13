@@ -3,8 +3,8 @@ package handlers
 import (
 	"net/http"
 
+	"github.com/Juny09/sport_backend/internal/auth"
 	"github.com/gin-gonic/gin"
-	"github.com/user/sport-booking/internal/auth"
 )
 
 // RegisterAuthRoutes 注册认证路由

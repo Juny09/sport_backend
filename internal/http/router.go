@@ -4,10 +4,10 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/Juny09/sport_backend/internal/auth"
+	"github.com/Juny09/sport_backend/internal/handlers"
+	"github.com/Juny09/sport_backend/internal/repo"
 	"github.com/gin-gonic/gin"
-	"github.com/user/sport-booking/internal/auth"
-	"github.com/user/sport-booking/internal/handlers"
-	"github.com/user/sport-booking/internal/repo"
 )
 
 // NewRouter 构建 HTTP 路由（中文说明：集中管理所有 API 路由）

@@ -1,4 +1,4 @@
-module github.com/user/sport-booking
+module github.com/Juny09/sport_backend
 
 go 1.23.0
 
