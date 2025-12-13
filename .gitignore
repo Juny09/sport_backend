@@ -1,0 +1,16 @@
+# Environment and secrets
+.env
+frontend_sport/lib/config.dart
+
+# Go build artifacts
+bin/
+*.exe
+*.out
+
+# Flutter build
+frontend_sport/.dart_tool/
+frontend_sport/.packages
+frontend_sport/build/
+frontend_sport/.flutter-plugins
+frontend_sport/.flutter-plugins-dependencies
+

@@ -1,0 +1,132 @@
+{
+  "info": {
+    "name": "Sport Booking API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "request": {"method": "GET", "url": "{{base_url}}/health"}
+    },
+    {
+      "name": "Me",
+      "request": {
+        "method": "GET",
+        "header": [{"key": "Authorization", "value": "Bearer {{access_token}}"}],
+        "url": "{{base_url}}/me"
+      }
+    },
+    {
+      "name": "Facilities List",
+      "request": {"method": "GET", "url": "{{base_url}}/facilities"}
+    },
+    {
+      "name": "Facility Units",
+      "request": {"method": "GET", "url": {"raw": "{{base_url}}/facilities/:id/units", "host": ["{{base_url}}"], "path": ["facilities", ":id", "units"]}}
+    },
+    {
+      "name": "Create Facility (Admin)",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Authorization", "value": "Bearer {{access_token}}"}],
+        "url": "{{base_url}}/facilities",
+        "body": {"mode": "raw", "raw": "{\n  \"name\": \"Badminton Extra\",\n  \"type\": \"badminton\"\n}"}
+      }
+    },
+    {
+      "name": "Create Unit (Admin)",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Authorization", "value": "Bearer {{access_token}}"}],
+        "url": "{{base_url}}/facilities/1/units",
+        "body": {"mode": "raw", "raw": "{\n  \"label\": \"Court 9\"\n}"}
+      }
+    },
+    {
+      "name": "Update Unit (Admin)",
+      "request": {
+        "method": "PATCH",
+        "header": [{"key": "Authorization", "value": "Bearer {{access_token}}"}],
+        "url": "{{base_url}}/units/1",
+        "body": {"mode": "raw", "raw": "{\n  \"is_active\": true\n}"}
+      }
+    },
+    {
+      "name": "Availability",
+      "request": {"method": "GET", "url": "{{base_url}}/availability?facility_type=badminton&date=2025-12-03&duration=60"}
+    },
+    {
+      "name": "Create Booking",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Authorization", "value": "Bearer {{access_token}}"}],
+        "url": "{{base_url}}/bookings",
+        "body": {"mode": "raw", "raw": "{\n  \"resource_unit_id\": 1,\n  \"start_time\": \"2025-12-03T10:00:00Z\",\n  \"end_time\": \"2025-12-03T11:00:00Z\",\n  \"notes\": \"Training\"\n}"}
+      }
+    },
+    {
+      "name": "Get Booking",
+      "request": {
+        "method": "GET",
+        "header": [{"key": "Authorization", "value": "Bearer {{access_token}}"}],
+        "url": "{{base_url}}/bookings/1"
+      }
+    },
+    {
+      "name": "List My Bookings",
+      "request": {
+        "method": "GET",
+        "header": [{"key": "Authorization", "value": "Bearer {{access_token}}"}],
+        "url": "{{base_url}}/bookings?mine=true"
+      }
+    },
+    {
+      "name": "Cancel Booking",
+      "request": {
+        "method": "PATCH",
+        "header": [{"key": "Authorization", "value": "Bearer {{access_token}}"}],
+        "url": "{{base_url}}/bookings/1/cancel"
+      }
+    },
+    {
+      "name": "Reschedule Booking",
+      "request": {
+        "method": "PATCH",
+        "header": [{"key": "Authorization", "value": "Bearer {{access_token}}"}],
+        "url": "{{base_url}}/bookings/1/reschedule",
+        "body": {"mode": "raw", "raw": "{\n  \"start_time\": \"2025-12-03T12:00:00Z\",\n  \"end_time\": \"2025-12-03T13:00:00Z\"\n}"}
+      }
+    },
+    {
+      "name": "Admin Bookings",
+      "request": {
+        "method": "GET",
+        "header": [{"key": "Authorization", "value": "Bearer {{access_token}}"}],
+        "url": "{{base_url}}/admin/bookings?facility_type=badminton&date=2025-12-03"
+      }
+    },
+    {
+      "name": "Add Pricing Rule",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Authorization", "value": "Bearer {{access_token}}"}],
+        "url": "{{base_url}}/pricing_rules",
+        "body": {"mode": "raw", "raw": "{\n  \"facility_type\": \"badminton\",\n  \"day_of_week\": 3,\n  \"start_hour\": 18,\n  \"end_hour\": 22,\n  \"price_per_hour\": 12.5\n}"}
+      }
+    },
+    {
+      "name": "Add Blackout",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Authorization", "value": "Bearer {{access_token}}"}],
+        "url": "{{base_url}}/blackouts",
+        "body": {"mode": "raw", "raw": "{\n  \"facility_id\": 1,\n  \"start_time\": \"2025-12-03T08:00:00Z\",\n  \"end_time\": \"2025-12-03T12:00:00Z\",\n  \"reason\": \"Maintenance\"\n}"}
+      }
+    }
+  ],
+  "variable": [
+    {"key": "base_url", "value": "http://localhost:8080"},
+    {"key": "access_token", "value": ""}
+  ]
+}
+
