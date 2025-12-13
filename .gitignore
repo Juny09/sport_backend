@@ -4,6 +4,7 @@ frontend_sport/lib/config.dart
 
 # Go build artifacts
 bin/
+app
 *.exe
 *.out
 
